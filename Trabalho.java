@@ -3,16 +3,12 @@
 para ajudar Jonny voce deve criar uma calculadora baskhara capaz de indicar o delta e os valores x1 e x2.
 2)Pedro esta saindo de viagem e gostaria de saber quantos litros de gasolina ele gastou de um trecho ao outro
 crie um programa que defina quantos litros Pedro gastou.
-3) O edifício MACK VISTA tem 10 andares e em cada andar existem 8 apartamentos. O síndico do prédio 
-resolveu fazer o seguinte levantamento:
-Quantidade de apartamentos vazios (nº moradores = 0)
-Qual é o andar que tem o maior número de moradores
-Quantidade total de moradores do prédio
-Faça um programa em Java que simule esta situação da seguinte forma. Construa uma matriz M(10x8), que 
-represente a estrutura do prédio, sendo: linha 0 - 1º andar, linha 1 - 2º andar e assim por diante. Para 
-simular a quantidade de moradores em cada apartamento, preencha a matriz com números aleatórios 
-entre 0 e 6. Exiba esta matriz na tela para poder aferir os resultados. Calcule e exiba os levantamentos que 
-o síndico deseja realizar.*/
+3) um predio possui um total de 10 andares e em cada andar existem 8 apartamentos. O dono do prédio 
+resolveu recolher os seguintes dados:
+numero de apartamentos sem moradores 
+andar com a maior quantidade de moradores
+Quantos moradores existem no total
+preencha a matriz aelatoriamente com numeros no valor de 0 a 6..*/
 
 package test;
 import java.util.Scanner;//importar pacote scanner
@@ -84,41 +80,47 @@ public static void main(String[] args) {
 		  break;
 	 
 	  case 3:
-		int M[][] = new int [10][8];//define matriz
+		int R[][] = new int [10][8];//define matriz
 	        int somatoria = 0, naoocupado = 0, maiornumero = 0, somatoridom;
 	        
 	       
 	        for (int i = 0; i < 10; i++){ //laco de repeticao que servira para gerar automaticamente os moradores de cada andar.
-	            for (int j = 0; j < M[i].length; j++){
+	            for (int j = 0; j < R[i].length; j++){
 	                do {
-	                    M[i][j] = (int) (100 * Math.random());// gera randomicamente um numero de habitantes
-	                } while ((M[i][j] < 0) || (M[i][j] > 6));
+	                    R[i][j] = (int) (100 * Math.random());// gera randomicamente um numero de habitantes
+	                } while ((R[i][j] < 0) || (R[i][j] > 6));
 	            }
 	        }
 		for (int i = 0; i < 10; i++){
 	            System.out.println();
 	            somatoridom = 0;
-	            for (int j = 0; j < M[i].length; j++){//define o total de quartos nao ocupados
-	                System.out.print(M[i][j] + " ");
-	                    if (M[i][j] == 0){
-	                        naoocupado ++;//conta quartos nao ocupados
+	            	for (int j = 0; j < R[i].length; j++){//define o total de quartos nao ocupados
+	            		System.out.print(R[i][j] + " ");
+	            				if (R[i][j] == 0){
+	            				naoocupado ++;//conta quartos nao ocupados
 	                    }
 	               
-	                    somatoria += M[i][j];//soma total de moradores
-	                    somatoridom += M[i][j];
+	                    		somatoria += R[i][j];//soma total de moradores
+	                    		somatoridom += R[i][j];
 	            }
 	           
-	            if (somatoridom > maiornumero){  //define andar com maior numero
-	                maiornumero = somatoridom; 
+	            				if (somatoridom > maiornumero){  //define andar com maior numero
+	            				maiornumero = somatoridom; 
 	            }
 	        }
 	        maiornumero += 1; 
 	        System.out.println();
-	        System.out.println("Existem o total de " + naoocupado + " apartamentos nao ocupados");
+	        
 	        System.out.println("O andar de numero " + maiornumero + "e o andar que possue a maior quantidade de individuos");
+	        
 	        System.out.println("Existem o total de" + somatoria + " moradores no domicilio");
+	        
+	        System.out.println("Existem o total de " + naoocupado + " apartamentos nao ocupados");
+	        
+	        
 	        }
 		 
 
 }
 }
+
